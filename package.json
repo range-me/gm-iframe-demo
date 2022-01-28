@@ -1,0 +1,13 @@
+{
+  "name": "gm-iframe-demo",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Frank <ans0600@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

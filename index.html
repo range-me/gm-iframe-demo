@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>iframe Window</title>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>RangeMe Page </h1>
+<p>Raw Message:</p>
+<div id="results"></div>
+<p>Parsed JSON Message:</p>
+<div id="json-results"></div>
+<br>
+<br>
+<iframe src="http://marketgate.com:1234/ecrm-meeting-registration" width="300" height="300"></iframe>
+
+<script>
+  const results = document.getElementById('results');
+  const jsonResults = document.getElementById('json-results');
+
+  // Listen to messages from parent window
+  window.addEventListener("message", function (e) {
+    results.innerHTML = e.data;
+    jsonResults.innerHTML = JSON.stringify(JSON.parse(e.data));
+  })
+
+</script>
+
+</body>
+</html>

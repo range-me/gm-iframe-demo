@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>iframe Window</title>
+    <style>
+        body {
+            background-color: #D53C2F;
+        }
+    </style>
+</head>
+<body>
+
+<h1>ECRM Book Meeting page</h1>
+<p>Send Message:
+    <button id="message_button">Meeting Book Successful</button>
+</p>
+
+<script>
+  // Send a message to the parent
+  const sendMessage = function (msg) {
+    // Make sure you are sending a string, and to stringify JSON
+    window.parent.postMessage(msg, '*');
+  };
+
+  const messageButton = document.getElementById('message_button');
+
+  messageButton.addEventListener("click", function () {
+    sendMessage(JSON.stringify(
+      {
+        status: 1, // follow same value definition in Meeting Confirmations API. 0=pending, 1=confirmed, 2=declined
+        time: Date.now() // demo purpose only
+      }
+    ));
+  });
+</script>
+</body>
+</html>
