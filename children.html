@@ -15,6 +15,11 @@
 <p>Send Message:
     <button id="message_button">Meeting Book Successful</button>
 </p>
+<p>
+  <span>Cookies: </span>
+  <span id="cookie-result"></span>
+</p>
+
 
 <script>
   // Send a message to the parent
@@ -33,6 +38,15 @@
       }
     ));
   });
+</script>
+
+<script>
+  window.fetch("/my-cookies").then((res)=>{
+    res.text().then((textResult)=>{
+      document.getElementById("cookie-result").innerText = textResult
+    })
+  })
+  // document.getElementById("cookie-result").innerText = cookies
 </script>
 </body>
 </html>
